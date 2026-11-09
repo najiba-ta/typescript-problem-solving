@@ -48,8 +48,8 @@ tsc solutions.ts
 
 ## author
 
-name: your name
+name: Najiba Takarrum
 
 ## github repository
 
-paste your github repository link here.
+https://github.com/najiba-ta/typescript-problem-solving
