@@ -1,6 +1,6 @@
 <!-- ! type alias vs interface ! -->
 
-# type alias vs interface in typescript
+type alias vs interface in typescript
 type alias and interface are two useful features in typescript. both are used to define the structure of data. they help developers write clean and reusable code. but they have some differences.
 we use the `type` keyword to create a type alias. it can define different types of values, such as string, number, union, tuple and object. for example:
 type UserId = string | number;
