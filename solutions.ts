@@ -1,3 +1,4 @@
+
 export const multiplyValue = (
   value: number,
   multiplier?: number
@@ -20,11 +21,7 @@ export const processInput = (
     return value * 10;
   }
 
-  if (value === true) {
-    return "Active";
-  }
-
-  return "Inactive";
+  return value ? "Active" : "Inactive";
 };
 
 export const formatCoordinate = (
@@ -57,12 +54,11 @@ export const getPopularCourses = (
   courses: Course[],
   minStudents: number
 ): Course[] => {
-  return courses.filter((course) => {
-    return (
-      course.isPublished === true &&
+  return courses.filter(
+    (course) =>
+      course.isPublished &&
       course.students >= minStudents
-    );
-  });
+  );
 };
 
 export const pluckValues = <T, K extends keyof T>(
@@ -99,7 +95,7 @@ export class Manager extends Employee {
   }
 
   getRoleInfo(): string {
-    return `Manager: ${this.name}, Department: ${this.department}`;
+    return `Manager of ${this.department}: ${this.name}`;
   }
 }
 
@@ -112,7 +108,9 @@ export const validateAgeAsync = (
         resolve("Access Granted");
       }, 1000);
     } else {
-      reject(new Error("Access Denied: Must be 18 or older"));
+      reject(
+        new Error("Access Denied: Must be 18 or older")
+      );
     }
   });
 };
