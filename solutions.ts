@@ -1,6 +1,7 @@
-// console.log("Hello");
-// ! Problem Solving 1
-export const multiplyValue = (value : number, multiplier? : number) : number => {
+export const multiplyValue = (
+  value: number,
+  multiplier?: number
+): number => {
   if (multiplier === undefined) {
     return value * 2;
   }
@@ -8,7 +9,6 @@ export const multiplyValue = (value : number, multiplier? : number) : number => 
   return value * multiplier;
 };
 
-//! Problem Solving 2
 export const processInput = (
   value: string | number | boolean
 ): string | number => {
@@ -20,19 +20,12 @@ export const processInput = (
     return value * 10;
   }
 
-  if (typeof value === "boolean") {
-    if (value === true) {
-      return "Active";
-    }
-    else{
-      return "Inactive";
-    }
+  if (value === true) {
+    return "Active";
   }
 
-  return value;
+  return "Inactive";
 };
-
-//! Problem 3 
 
 export const formatCoordinate = (
   coordinate: readonly [number, number, string]
@@ -42,8 +35,6 @@ export const formatCoordinate = (
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 };
 
-
-//TODO Prblem 4
 export const concatenateArrays = <T>(
   ...arrays: T[][]
 ): T[] => {
@@ -56,9 +47,7 @@ export const concatenateArrays = <T>(
   return result;
 };
 
-//? Problem 5
-
-interface Course {
+export interface Course {
   title: string;
   students: number;
   isPublished: boolean;
@@ -69,12 +58,13 @@ export const getPopularCourses = (
   minStudents: number
 ): Course[] => {
   return courses.filter((course) => {
-    return course.isPublished === true &&
-      course.students >= minStudents;
+    return (
+      course.isPublished === true &&
+      course.students >= minStudents
+    );
   });
 };
 
-//* problem 6
 export const pluckValues = <T, K extends keyof T>(
   items: T[],
   key: K
@@ -82,7 +72,6 @@ export const pluckValues = <T, K extends keyof T>(
   return items.map((item) => item[key]);
 };
 
-// ! Problem 7 
 export class Employee {
   protected name: string;
   private baseSalary: number;
@@ -93,7 +82,7 @@ export class Employee {
   }
 
   getDetails(): string {
-    return `Employee Name: ${this.name}, Salary: ${this.baseSalary}`;
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
   }
 }
 
@@ -110,15 +99,14 @@ export class Manager extends Employee {
   }
 
   getRoleInfo(): string {
-    return `Manager Name: ${this.name}, Department: ${this.department}`;
+    return `Manager: ${this.name}, Department: ${this.department}`;
   }
 }
 
-// ! Problem 8 
 export const validateAgeAsync = (
   age: number
 ): Promise<string> => {
-  return new Promise((resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     if (age >= 18) {
       setTimeout(() => {
         resolve("Access Granted");
